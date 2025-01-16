@@ -24,3 +24,15 @@ export function shallowCopy(object) {
 
   return null;
 }
+
+/**
+ *
+ * @param {string} value
+ */
+export function isNumericString(value) {
+  return !isNaN(value);
+}
+
+export function isPositiveNumber(value) {
+  return Number(value) > 0;
+}
