@@ -1,4 +1,4 @@
-import isMatch from '../src/utils';
+import { isMatch, shallowCopy } from '../src/utils';
 
 describe('utils', () => {
   describe('isMatch', () => {
@@ -24,6 +24,19 @@ describe('utils', () => {
 
       // then
       expect(result).toBe(false);
+    });
+  });
+
+  describe('shallowCopy', () => {
+    it('배열을 입력받은 경우 얕은 복사를 진행한 배열을 반환한다.', () => {
+      // given
+      const arr = [1, 2, 3];
+
+      // when
+      const result = shallowCopy(arr);
+
+      // then
+      expect(result).not.toBe(arr);
     });
   });
 });
