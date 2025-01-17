@@ -6,6 +6,11 @@ class Calculator {
     this.#delimiter = delimiter;
   }
 
+  /**
+   *
+   * @param {string} value
+   * @returns {number}
+   */
   calculate(value) {
     return this.#delimiter
       .getDelimitedString(value)

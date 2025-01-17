@@ -7,6 +7,7 @@ describe('Calculator', () => {
   beforeEach(() => {
     calculator = new Calculator(new Delimiter());
   });
+
   describe('calculate', () => {
     describe('커스텀 구분자가 없는 경우', () => {
       it('기본 구분자를 사용하여 입력한 문자열에서 숫자를 추출하고 더한 결과륿 반환한다.', () => {
