@@ -1,4 +1,4 @@
-import { isNumericString, isPositiveNumber } from './utils';
+import { isNumericString, isPositiveNumber } from './utils.js';
 
 class Validator {
   /** @type {Delimiter} */
@@ -9,7 +9,7 @@ class Validator {
 
   static ERROR_MESSAGE = Object.freeze({
     HAS_NOT_ALLOWED_DELIMITER:
-      '[ERROR] 쉼표(,), 콜론(:) 또는 "//"와 "\n" 사이에 위치하는 문자만 구분자로 사용할 수 있습니다.',
+      '[ERROR] 쉼표(,), 콜론(:) 또는 "//"와 "\\n" 사이에 위치하는 문자만 구분자로 사용할 수 있습니다.',
     HAS_NEGATIVE_OR_ZERO_NUMBER: '[ERROR] 음수 또는 0은 사용할 수 없습니다.',
   });
 
@@ -31,10 +31,10 @@ class Validator {
 
     this.#validator
       .validate(delimitedString)
-      .with(this.#hasAllowedDelimiter(value), {
+      .with(this.#hasAllowedDelimiter, {
         message: Validator.ERROR_MESSAGE.HAS_NOT_ALLOWED_DELIMITER,
       })
-      .with(this.#hasPositiveNumber(value), {
+      .with(this.#hasPositiveNumber, {
         message: Validator.ERROR_MESSAGE.HAS_NEGATIVE_OR_ZERO_NUMBER,
       });
   }

@@ -27,6 +27,7 @@ export default [
       'no-return-await': 'off',
       'no-restricted-globals': 'off',
       'no-restricted-imports': ['error'],
+      'import/extension': 'always',
       // 'import/extensions': ['error', 'ignorePackages'],
     },
   },
