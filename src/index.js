@@ -6,8 +6,9 @@ import Validator from './Validator.js';
 import View from './View.js';
 
 const app = new App(
-  new Calculator(new Delimiter()),
-  new Validator(new Delimiter(), new SchemaValidator()),
+  new Calculator(),
+  new Delimiter(),
+  new Validator(new SchemaValidator()),
   new View(),
 );
 

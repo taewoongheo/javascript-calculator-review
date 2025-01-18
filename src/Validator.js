@@ -1,9 +1,6 @@
 import { isNumericString, isPositiveNumber } from './utils.js';
 
 class Validator {
-  /** @type {Delimiter} */
-  #delmiter;
-
   /** @type {SchemaValidator} */
   #validator;
 
@@ -13,8 +10,7 @@ class Validator {
     HAS_NEGATIVE_OR_ZERO_NUMBER: '[ERROR] 음수 또는 0은 사용할 수 없습니다.',
   });
 
-  constructor(delimiter, validator) {
-    this.#delmiter = delimiter;
+  constructor(validator) {
     this.#validator = validator;
   }
 
@@ -27,10 +23,8 @@ class Validator {
   }
 
   validate(value) {
-    const delimitedString = this.#delmiter.getDelimitedString(value);
-
     this.#validator
-      .validate(delimitedString)
+      .validate(value)
       .with(this.#hasAllowedDelimiter, {
         message: Validator.ERROR_MESSAGE.HAS_NOT_ALLOWED_DELIMITER,
       })
